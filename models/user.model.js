@@ -29,21 +29,23 @@ const userSchema = new mongoose.Schema(
       required: "At least 1 stock is required",
       enum: [constants.stocks]
     },
-    picks: [{}],
 
     following: [
       {
-        type: Schema.ObjectId,
+        type: mongoose.Schema.ObjectId,
         ref: "User"
       }
     ],
 
     followers: [
       {
-        type: Schema.ObjectId,
+        type: mongoose.Schema.ObjectId,
         ref: "User"
       }
     ],
+    average: {
+      type: Number
+    },
 
     avatarURL: {
       type: String,
@@ -63,6 +65,13 @@ const userSchema = new mongoose.Schema(
     }
   }
 );
+
+// userSchema.virtual('picks', {
+//   ref: Pick.modelName,
+//   localField: '_id',
+//   foreignField: 'user',
+//   options: {  }
+// })
 
 userSchema.pre("save", function(next) {
   const user = this;

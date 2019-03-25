@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-import constants from '../constants'
+const constants = require('../constants')
 
 const pickSchema = new mongoose.Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
   stock: {
@@ -29,7 +29,7 @@ const pickSchema = new mongoose.Schema({
   likes: [
     {
       user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
       }
     }
@@ -41,7 +41,7 @@ const pickSchema = new mongoose.Schema({
   comments: [
     {
       user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
       },
       text: {
@@ -73,6 +73,9 @@ const pickSchema = new mongoose.Schema({
     }
   }
 });
+
+// pickSchema.index();
+
 
 const Pick = mongoose.model('Pick', pickSchema);
 module.exports = Pick;

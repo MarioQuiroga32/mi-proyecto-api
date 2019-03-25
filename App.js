@@ -8,7 +8,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const authRoutes = require('./routes/auth.routes');
-const userRoutes = require('./routes/users.routes')
+const userRoutes = require('./routes/users.routes');
+const picksRoutes = require('./routes/picks.routes');
 
 
 require('./configs/db.config');
@@ -31,6 +32,7 @@ app.use(passport.session());
 
 app.use('/', authRoutes);
 app.use('/users', userRoutes);
+app.use('/picks', picksRoutes)
 
 app.use((req, res, next) => {
   res.locals.session = req.user;

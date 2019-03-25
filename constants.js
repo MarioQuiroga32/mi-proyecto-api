@@ -5,7 +5,7 @@ module.exports = {
            "MELIÁ HOTELS", "MERLIN PROP.", "NATURGY", "RED ELÉCTRICA", "REPSOL", "SANTANDER", "SIEMENS GAMESA",
            "TÉCNICAS REUNIDAS", "TELEFÓNICA", "VISCOFAN"],
 
-  actions: ['Sube', 'Baja'],
+  actions: ['Up', 'Down'],
 
   recommendation: ['Buy', 'Sell', 'Keep']
   }
