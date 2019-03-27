@@ -3,7 +3,16 @@ const createError = require('http-errors');
 const Pick = require('../models/pick.model')
 
 module.exports.createPick = (req, res, next) => {
-  const pick = new Pick(req.body)
+  const { stock, action, predictedClosing, recommendation, description } = req.body
+  const { id } = req.user
+  const pick = new Pick({
+    user: id,
+    stock,
+    action,
+    predictedClosing,
+    recommendation,
+    description
+  })
   pick.save()
     .then(pick => res.status(201).json(pick))
     .catch(next);
