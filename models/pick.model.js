@@ -26,7 +26,6 @@ const pickSchema = new mongoose.Schema({
     required: 'Recommended action is required',
     enum: constants.recommendation
   },
-  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   likes: [
     {
       user: {
