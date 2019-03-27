@@ -1,6 +1,7 @@
 const User = require('../models/user.model');
-
+const mongoose = require('mongoose')
 const createError = require('http-errors');
+const Pick = require('../models/pick.model')
 
 module.exports.list = (req, res, next) => {
   User.find()
@@ -9,7 +10,7 @@ module.exports.list = (req, res, next) => {
 }
 
 module.exports.get = (req, res, next) => {
-  User.findById(req.params.id)
+  User.findById(req.params.Id)
     .then(user => {
       if (!user) {
         throw createError(404, 'user not found');

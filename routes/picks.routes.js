@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const secure = require('../middlewares/secure.mid');
-const picksController = require('../controllers/picks.contoller');
+const picksController = require('../controllers/picks.controller');
 
-router.get('/', picksController.list);
-router.post('/', picksController.create);
-router.get('/:id', picksController.get);
-
+router.post('/', picksController.createPick);
+router.get('/', picksController.listPicks);
+router.get('/following', picksController.listFollowingPicks);
+router.get('/:id', picksController.getPick);
 
 module.exports = router;
