@@ -34,6 +34,18 @@ module.exports.authenticate = (req, res, next) => {
   })(req, res, next);
 }
 
+module.exports.editProfile = (req, res, next) => {
+  delete req.body.email;
+  
+  const user = req.user;
+  Object.keys(req.body).forEach(prop => user[prop] = req.body[prop]);
+  if (req.file) user.avatarURL = req.file.secure_url;
+  
+  user.save()
+    .then(user => res.status(201).json(user))
+    .catch(next)
+}
+
 module.exports.logout = (req, res, next) => {
   req.logout();
   res.status(204).json();

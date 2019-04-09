@@ -7,23 +7,18 @@ const pickSchema = new mongoose.Schema({
     ref: 'users'
   },
   stock: {
-    type: String,
-    required: 'Stock is required',
-    uppercase: true,
-    enum: constants.stocks
+    type: String
+  },
+  date: {
+    type: String
   },
   action: {
     type: String,
-    required: 'symbol is required',
-    enum: constants.actions
-  },
-  predictedClosing: {
-    type: String,
-    required: 'Predicted closing value is required',
+    // required: 'action is required'
   },
   recommendation: {
     type: String,
-    required: 'Recommended action is required',
+    // required: 'Recommended action is required',
     enum: constants.recommendation
   },
   likes: [
@@ -36,7 +31,7 @@ const pickSchema = new mongoose.Schema({
   ],
   description: {
     type: String,
-    required: 'Description is required',
+    // required: 'Description is required',
   },
   comments: [
     {
@@ -53,11 +48,11 @@ const pickSchema = new mongoose.Schema({
       },
       avatar: {
         type: String
-      },
-      date: {
-        type: Date,
-        default: Date.now
       }
+      // date: {
+      //   type: Date,
+      //   default: Date.now
+      // }
     }
   ],
   

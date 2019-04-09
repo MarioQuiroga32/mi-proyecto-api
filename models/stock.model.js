@@ -1,35 +1,29 @@
 const mongoose = require('mongoose');
 
 const stockSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: 'Name is required',
-    unique: true,
-    uppercase: true
-  },
   symbol: {
     type: String,
-    required: 'Symbol is required',
+    // required: 'Symbol is required',
   },
-  openingValue: {
-    type: String,
-    required: 'Opening value is required',
+  open: {
+    type: Number,
+    // required: 'Opening value is required',
   },
-  closingValue: {
-    type: String,
-    required: 'Closing value is required',
+  close: {
+    type: Number,
+    // required: 'Closing value is required',
   },
-  highestValue: {
-    type: String,
-    required: 'Highest value is required',
+  high: {
+    type: Number,
+    // required: 'Highest value is required',
   },
-  lowestValue: {
-    type: String,
-    required: 'Lowest value is required',
+  low: {
+    type: Number,
+    // required: 'Lowest value is required',
   },
   volume: {
-    type: String,
-    required: 'Volume is required',
+    type: Number,
+    // required: 'Volume is required',
   }
 }, {
   timestamps: true,
@@ -43,6 +37,7 @@ const stockSchema = new mongoose.Schema({
     }
   }
 });
+
 
 const Stock = mongoose.model('Stock', stockSchema);
 module.exports = Stock;

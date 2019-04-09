@@ -10,5 +10,7 @@ router.post('/', secure.isAuthenticated,  usersController.create);
 router.get('/:userId', secure.isAuthenticated, usersController.get);
 router.put('/:userId', secure.isAuthenticated, usersController.update);
 
+router.post('/:userId/follow', usersController.follow)
+
 
 module.exports = router;

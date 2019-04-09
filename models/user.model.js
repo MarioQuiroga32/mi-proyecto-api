@@ -8,6 +8,9 @@ const URL_PATTERN = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0
 
 const userSchema = new mongoose.Schema(
   {
+    username: {
+      type: String
+    },
     email: {
       type: String,
       required: "Email is required",
@@ -24,12 +27,6 @@ const userSchema = new mongoose.Schema(
         "Passwords must contain at least six characters, including uppercase, lowercase letters and numbers."
       ]
     },
-    portfolio: {
-      type: String,
-      required: "At least 1 stock is required",
-      enum: constants.stocks
-    },
-
     following: [
       {
         type: mongoose.Schema.ObjectId,

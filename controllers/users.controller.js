@@ -57,3 +57,9 @@ module.exports.delete = (req, res, next) => {
     })
     .catch(next);
 }
+
+module.exports.follow = (req, res, next) => {
+  User.findByIdAndUpdate(req.user.id, { $addToSet: { following: [req.params.userId]}}, {new: true })
+    .then(user => res.json(user))
+    .catch(next)
+}

@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 const createError = require('http-errors');
-const Pick = require('../models/pick.model')
+const Pick = require('../models/pick.model');
+const Stock = require('../models/stock.model')
 
 module.exports.createPick = (req, res, next) => {
-  const { stock, action, predictedClosing, recommendation, description } = req.body
+  const { stock, action, description, date } = req.body
   const { id } = req.user
   const pick = new Pick({
     user: id,
     stock,
     action,
-    predictedClosing,
-    recommendation,
-    description
+    description,
+    date
   })
   pick.save()
     .then(pick => res.status(201).json(pick))
@@ -52,3 +52,6 @@ module.exports.getPick = (req, res, next) => {
     })
     .catch(next);
 }
+
+
+

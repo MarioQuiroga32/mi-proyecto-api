@@ -10,13 +10,14 @@ const passport = require('passport');
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/users.routes');
 const picksRoutes = require('./routes/picks.routes');
+const stocksRoutes = require('./routes/stocks.routes')
 
 
 require('./configs/db.config');
 const session = require('./configs/session.config');
 const cors = require('./configs/cors.config');
 require('./configs/passport.config');
-
+require('./bin/collect-stocks');
 
 const app = express();
 
@@ -32,7 +33,8 @@ app.use(passport.session());
 
 app.use('/', authRoutes);
 app.use('/users', userRoutes);
-app.use('/picks', picksRoutes)
+app.use('/picks', picksRoutes);
+app.use('/stocks', stocksRoutes);
 
 app.use((req, res, next) => {
   res.locals.session = req.user;
