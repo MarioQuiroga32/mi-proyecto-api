@@ -6,6 +6,9 @@ const pickSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
+  username: {
+    type: String
+  },
   stock: {
     type: String
   },

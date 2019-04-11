@@ -7,6 +7,7 @@ const picksController = require("../controllers/picks.controller");
 router.post("/", secure.isAuthenticated, picksController.createPick);
 router.get("/", secure.isAuthenticated, picksController.listPicks);
 router.get("/following", secure.isAuthenticated, picksController.listFollowingPicks);
+router.get("/:userId", secure.isAuthenticated, picksController.listUserPicks);
 router.get("/:id", secure.isAuthenticated, picksController.getPick);
 
 module.exports = router;
