@@ -17,7 +17,7 @@ require('./configs/db.config');
 const session = require('./configs/session.config');
 const cors = require('./configs/cors.config');
 require('./configs/passport.config');
-require('./bin/collect-stocks');
+//require('./bin/collect-stocks');
 
 const app = express();
 
