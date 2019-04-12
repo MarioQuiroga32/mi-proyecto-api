@@ -7,7 +7,7 @@ const time = 1000 * 24;
 
 
 var CronJob = require('cron').CronJob;
-new CronJob('*/7 16-23 * * *', function() {
+// new CronJob('* * * * *', function() {
   const delay = millis => (fn, name) => {
     setTimeout(async () => {
       try {
@@ -26,6 +26,6 @@ setTimeout(() => {
     await delay(time * index)(stockService, name)
   })
 })
-}, null, true, 'America/Los_Angeles');
+// }, null, true, 'America/Los_Angeles');
 
 
