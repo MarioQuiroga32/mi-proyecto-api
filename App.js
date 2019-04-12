@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const cors = require('cors')
 
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/users.routes');
@@ -15,7 +16,7 @@ const stocksRoutes = require('./routes/stocks.routes')
 
 require('./configs/db.config');
 const session = require('./configs/session.config');
-const cors = require('./configs/cors.config');
+const corsConfig = require('./configs/cors.config');
 require('./configs/passport.config');
 require('./bin/collect-stocks');
 
@@ -25,7 +26,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors);
+app.use(cors(corsConfig));
 
 app.use(session);
 app.use(passport.initialize());
