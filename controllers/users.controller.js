@@ -63,3 +63,9 @@ module.exports.follow = (req, res, next) => {
     .then(user => res.json(user))
     .catch(next)
 }
+
+module.exports.unfollow = (req, res, next) => {
+  User.findByIdAndUpdate(req.user.id, { $pullAll: { following: [req.params.userId]}}, {multi: true})  
+  .then(user => res.json(user))
+  .catch(next)
+}

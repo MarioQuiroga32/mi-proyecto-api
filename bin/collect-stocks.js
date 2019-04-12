@@ -1,13 +1,13 @@
 
 const stockService = require('../services/stockService.service');
 
-const names = ['axp', 'aapl', 'ba', 'cat', 'cvx', 'csco', 'ko', 'dwdp', 'dis', 'xom', 'gs', 'hd', 'ibm', 'intc', 'jnj', 'jpm', 'mcd', 'mrk', 'msft', 'nke', 'pfe', 'pg', 'trv', 'utx', 'unh', 'vz', 'v', 'wba', 'wmt'];
+const names = ['axp', 'aapl', 'ba', 'cat', 'cvx', 'csco', 'ko', 'dwdp', 'dis', 'xom', 'gs', 'hd', 'ibm', 'intc', 'jnj', 'jpm', 'mcd','mmm', 'mrk', 'msft', 'nke', 'pfe', 'pg', 'trv', 'utx', 'unh', 'vz', 'v', 'wba', 'wmt'];
 
 const time = 1000 * 24;
 
 
 var CronJob = require('cron').CronJob;
-new CronJob('*/7 15-23 * * *', function() {
+new CronJob('*/7 16-23 * * *', function() {
   const delay = millis => (fn, name) => {
     setTimeout(async () => {
       try {

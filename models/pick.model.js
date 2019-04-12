@@ -9,6 +9,9 @@ const pickSchema = new mongoose.Schema({
   username: {
     type: String
   },
+  avatarUrl: {
+    type: String
+  },
   stock: {
     type: String
   },
@@ -36,6 +39,7 @@ const pickSchema = new mongoose.Schema({
     type: String,
     // required: 'Description is required',
   },
+
   comments: [
     {
       user: {

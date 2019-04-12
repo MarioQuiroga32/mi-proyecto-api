@@ -6,13 +6,15 @@ module.exports.createPick = (req, res, next) => {
   const { stock, action, description, date } = req.body
   const { id } = req.user
   const { username } = req.user
+  const { avatarUrl } = req.user
   const pick = new Pick({
     user: id,
     stock,
     action,
     description,
     date, 
-    username: username
+    username: username,
+    avatarUrl: avatarUrl
   })
   pick.save()
     .then(pick => res.status(201).json(pick))

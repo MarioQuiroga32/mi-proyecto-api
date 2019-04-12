@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema(
       type: Number
     },
 
-    avatarURL: {
+    avatarUrl: {
       type: String,
       match: [URL_PATTERN, "Invalid avatar URL pattern"]
     },
