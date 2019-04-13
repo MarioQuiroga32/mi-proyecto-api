@@ -6,26 +6,26 @@ const names = ['axp', 'aapl', 'ba', 'cat', 'cvx', 'csco', 'ko', 'dwdp', 'dis', '
 const time = 1000 * 24;
 
 
-var CronJob = require('cron').CronJob;
-// new CronJob('* * * * *', function() {
-  const delay = millis => (fn, name) => {
-    setTimeout(async () => {
-      try {
-        const stocks = await fn.getStockInfo(name);
-        const last = stocks[0];
-        console.info(`STOCK | ${millis} millis => `, last)
-        last.save()
-      } catch(error) {
-        console.info('ERROR => ', error)
-      }
-    }, millis)
-}
+// var CronJob = require('cron').CronJob;
+// // new CronJob('* * * * *', function() {
+//   const delay = millis => (fn, name) => {
+//     setTimeout(async () => {
+//       try {
+//         const stocks = await fn.getStockInfo(name);
+//         const last = stocks[0];
+//         console.info(`STOCK | ${millis} millis => `, last)
+//         last.save()
+//       } catch(error) {
+//         console.info('ERROR => ', error)
+//       }
+//     }, millis)
+// }
 
-setTimeout(() => {
-  names.forEach(async (name, index) => {
-    await delay(time * index)(stockService, name)
-  })
-})
+// setTimeout(() => {
+//   names.forEach(async (name, index) => {
+//     await delay(time * index)(stockService, name)
+//   })
+// })
 // }, null, true, 'America/Los_Angeles');
 
 
